@@ -12,6 +12,7 @@
     "docs-dev": "documittu start"
   },
   "repository": "https://github.com/pajn/react-form-helper.git",
+  "homepage": "https://pajn.github.io/react-form-helper",
   "author": "Rasmus Eneman <rasmus@eneman.eu>",
   "license": "MIT",
   "devDependencies": {
