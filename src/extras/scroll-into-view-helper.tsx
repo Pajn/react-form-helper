@@ -1,16 +1,20 @@
-import * as React from 'react'
+import React from 'react'
 import {Component, ReactType} from 'react'
 import {findDOMNode} from 'react-dom'
-import wrapDisplayName from 'recompose/wrapDisplayName'
+import {ComponentEnhancer, wrapDisplayName} from 'recompose'
 import scrollIntoViewIfNeeded from 'scroll-into-view-if-needed'
 import {FieldConfig} from '../index'
 
-export type HOC = (component: ReactType) => ReactType
 export type Settings = {
   /**
    * Scroll time in ms
    */
   duration?: number
+}
+
+export type WithScrollIntoViewInjectedProps = {
+  setAllowScrollIntoView: (allowScrolling: boolean) => void
+  scroller: {}
 }
 
 /**
@@ -24,7 +28,7 @@ export type Settings = {
  *  - **scroller**: is an object that should passed as the first argument to [scollIntoView].
  *    It should never be accessed directly
  */
-export const withScrollIntoView: (settings?: Settings) => HOC = ({duration = 200}: Settings = {}) =>
+export const withScrollIntoView: (settings?: Settings) => ComponentEnhancer<{}, WithScrollIntoViewInjectedProps> = ({duration = 200}: Settings = {}) =>
   WrappedComponent => class extends Component<any, {allowScroll: boolean}> {
     static displayName = wrapDisplayName(WrappedComponent, 'withScrollIntoView')
 

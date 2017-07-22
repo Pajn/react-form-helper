@@ -1,6 +1,5 @@
 import {lensPath, path as getPath, set} from 'ramda'
-import * as React from 'react'
-import {CSSProperties, Component, ReactChild, ReactType, cloneElement} from 'react'
+import React, {CSSProperties, Component, ReactChild, ReactType, cloneElement} from 'react'
 import {BrowserButton, BrowserInput} from './browser-components'
 import {getValue, isValid} from './helpers'
 

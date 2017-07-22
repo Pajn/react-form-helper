@@ -1,10 +1,10 @@
-import * as React from 'react'
-import {snap} from 'tscomp'
+import React from 'react'
+import renderer from 'react-test-renderer'
 import {FormHelper} from './index'
 
 describe('FormHelper', () => {
   it('should render the passed fields', () => {
-    snap(
+    expect(renderer.create(
       <FormHelper
         value={{a: 'a'}}
         onSave={() => {}}
@@ -13,11 +13,11 @@ describe('FormHelper', () => {
           {path: ['b']},
         ]}
       />
-    )
+    )).toMatchSnapshot()
   })
 
   it('should render using specified components', () => {
-    snap(
+    expect(renderer.create(
       <FormHelper
         inputComponent='some-input'
         value={{a: 'a', c: 'c'}}
@@ -29,11 +29,11 @@ describe('FormHelper', () => {
           {component: 'other-input', path: ['d']},
         ]}
       />
-    )
+    )).toMatchSnapshot()
   })
 
   it('should not pass errors to the browser inputs', () => {
-    snap(
+    expect(renderer.create(
       <FormHelper
         value={{}}
         onSave={() => {}}
@@ -43,11 +43,11 @@ describe('FormHelper', () => {
           {path: ['c'], validations: {c: {text: 'c error', validation: () => false}}},
         ]}
       />
-    )
+    )).toMatchSnapshot()
   })
 
   it('should pass errors to custom inputs', () => {
-    snap(
+    expect(renderer.create(
       <FormHelper
         inputComponent='input'
         value={{c: 'value'}}
@@ -58,11 +58,11 @@ describe('FormHelper', () => {
           {path: ['c'], validations: {c: {text: 'c error', validation: () => false}}},
         ]}
       />
-    )
+    )).toMatchSnapshot()
   })
 
   it('should not run custom validators on no value', () => {
-    snap(
+    expect(renderer.create(
       <FormHelper
         inputComponent='input'
         value={{}}
@@ -71,11 +71,11 @@ describe('FormHelper', () => {
           {path: ['a'], validations: {a: {text: 'a error', validation: () => {throw 'should not be called'}}}},
         ]}
       />
-    )
+    )).toMatchSnapshot()
   })
 
   it('should pass errors to untouched inputs if errorOnTouched is true', () => {
-    snap(
+    expect(renderer.create(
       <FormHelper
         errorOnTouched
         inputComponent='input'
@@ -87,11 +87,11 @@ describe('FormHelper', () => {
           {path: ['c'], validations: {c: {text: 'c error', validation: () => false}}},
         ]}
       />
-    )
+    )).toMatchSnapshot()
   })
 
   it('should pass errors to untouched inputs if they are listed in the errorOnTouched array', () => {
-    snap(
+    expect(renderer.create(
       <FormHelper
         errorOnTouched={['b']}
         inputComponent='input'
@@ -103,6 +103,6 @@ describe('FormHelper', () => {
           {path: ['c'], validations: {c: {text: 'c error', validation: () => false}}},
         ]}
       />
-    )
+    )).toMatchSnapshot()
   })
 })

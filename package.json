@@ -1,14 +1,14 @@
 {
   "name": "react-form-helper",
-  "version": "0.4.5",
+  "version": "0.5.0",
   "description": "React component for building forms with ease",
-  "main": "dist/src/index.js",
-  "typings": "dist/src/index.d.ts",
+  "main": "cjs/index.js",
+  "module": "lib/index.js",
+  "typings": "lib/index.d.ts",
   "scripts": {
     "build": "tscomp build",
     "watch": "tscomp watch",
     "test": "tscomp test",
-    "prepublish": "yarn build",
     "docs": "yarn docs-analyze && documittu build",
     "docs-dev": "documittu start",
     "docs-analyze": "documittu-analyzer-ts . > docs/analyze-result.json"
@@ -18,29 +18,34 @@
   "author": "Rasmus Eneman <rasmus@eneman.eu>",
   "license": "MIT",
   "devDependencies": {
-    "@types/jest": "^18.1.1",
-    "@types/react": "^15.0.14",
+    "@types/jest": "^20.0.4",
+    "@types/react": "^15.0.38",
+    "@types/react-test-renderer": "^15.5.2",
     "documittu": "^0.1.0",
     "documittu-analyzer-ts": "^0.1.0",
     "documittu-template-default": "^0.1.0",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
-    "react-toolbox": "1",
-    "react-toolbox-components": "^0.1.10",
-    "styled-material": "^0.1.8",
-    "tscomp": "^0.8.2",
-    "tslint": "^4.0.2",
-    "tslint-config-beanloop": "^0.1.0"
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-test-renderer": "^15.6.1",
+    "react-toolbox": "^2.0.0-beta.12",
+    "react-toolbox-components": "^0.3.2",
+    "styled-material": "^0.2.0",
+    "tscomp": "^0.13.0",
+    "tslint": "^5.5.0",
+    "tslint-config-beanloop": "^0.2.0"
   },
   "dependencies": {
-    "@types/ramda": "^0.0.2",
-    "@types/recompose": "^0.20.4",
-    "ramda": "^0.22.1",
-    "recompose": "^0.21.2",
-    "scroll-into-view-if-needed": "^1.0.6"
+    "@types/ramda": "^0.24.4",
+    "@types/recompose": "^0.23.2",
+    "ramda": "^0.24.1",
+    "recompose": "^0.24.0",
+    "scroll-into-view-if-needed": "^1.1.0"
   },
   "peerDependencies": {
     "@types/react": "^15.0.14",
     "react": "^15.4.1"
+  },
+  "tscomp": {
+    "mode": "lib"
   }
 }
