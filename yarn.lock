@@ -27,9 +27,9 @@
   version "7.0.8"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-7.0.8.tgz#25e4dd804b630c916ae671233e6d71f6ce18124a"
 
-"@types/ramda@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@types/ramda/-/ramda-0.0.2.tgz#04e9b560b118eaf48542945ef9b2701c3f9832e3"
+"@types/ramda@^0.24.16":
+  version "0.24.16"
+  resolved "https://registry.yarnpkg.com/@types/ramda/-/ramda-0.24.16.tgz#e3849362ed1ab89923c10e8755db84135275a1ac"
 
 "@types/ramda@^0.24.4":
   version "0.24.4"
@@ -50,12 +50,6 @@
 "@types/react@*", "@types/react@^15.0.0", "@types/react@^15.0.10", "@types/react@^15.0.35", "@types/react@^15.0.36", "@types/react@^15.0.38":
   version "15.0.38"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-15.0.38.tgz#6afea31a9fe66304af474106ba372ddaba449995"
-
-"@types/recompose@^0.20.4":
-  version "0.20.4"
-  resolved "https://registry.yarnpkg.com/@types/recompose/-/recompose-0.20.4.tgz#9fa6528c9e2e234e212b12a51ee9dcaf4f433057"
-  dependencies:
-    "@types/react" "*"
 
 "@types/recompose@^0.23.2":
   version "0.23.2"
@@ -174,7 +168,7 @@ alphanum-sort@^1.0.1, alphanum-sort@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/alphanum-sort/-/alphanum-sort-1.0.2.tgz#97a1119649b211ad33691d9f9f486a8ec9fbe0a3"
 
-amator@^1.0.1:
+amator@1.0.1, amator@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amator/-/amator-1.0.1.tgz#0fd3663fef5f3334d088cf68a70ba74398aa0e26"
   dependencies:
@@ -2311,7 +2305,7 @@ create-hmac@^1.1.0, create-hmac@^1.1.2, create-hmac@^1.1.4:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-create-react-class@^15.5.2, create-react-class@^15.6.0:
+create-react-class@^15.6.0:
   version "15.6.0"
   resolved "https://registry.yarnpkg.com/create-react-class/-/create-react-class-15.6.0.tgz#ab448497c26566e1e29413e883207d57cfe7bed4"
   dependencies:
@@ -8414,10 +8408,6 @@ railroad-diagrams@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/railroad-diagrams/-/railroad-diagrams-1.0.0.tgz#eb7e6267548ddedfb899c1b90e57374559cddb7e"
 
-ramda@^0.22.1:
-  version "0.22.1"
-  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.22.1.tgz#031da0c3df417c5b33c96234757eb37033f36a0e"
-
 ramda@^0.23.0:
   version "0.23.0"
   resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.23.0.tgz#ccd13fff73497a93974e3e86327bfd87bd6e8e2b"
@@ -8425,6 +8415,10 @@ ramda@^0.23.0:
 ramda@^0.24.1:
   version "0.24.1"
   resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.24.1.tgz#c3b7755197f35b8dc3502228262c4c91ddb6b857"
+
+ramda@^0.25.0:
+  version "0.25.0"
+  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.25.0.tgz#8fdf68231cffa90bc2f9460390a0cb74a29b29a9"
 
 randexp@^0.4.2:
   version "0.4.5"
@@ -8536,15 +8530,15 @@ react-error-overlay@^1.0.9:
     settle-promise "1.0.0"
     source-map "0.5.6"
 
-react-form-helper@^0.4.7:
-  version "0.4.7"
-  resolved "https://registry.yarnpkg.com/react-form-helper/-/react-form-helper-0.4.7.tgz#da89f2fc3f5312eb353e28080be8f08a8be202d1"
+react-form-helper@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/react-form-helper/-/react-form-helper-0.5.0.tgz#fd786bc77e991465bcd64b4da8d83dbaed9bf190"
   dependencies:
-    "@types/ramda" "^0.0.2"
-    "@types/recompose" "^0.20.4"
-    ramda "^0.22.1"
-    recompose "^0.21.2"
-    scroll-into-view-if-needed "^1.0.6"
+    "@types/ramda" "^0.24.4"
+    "@types/recompose" "^0.23.2"
+    ramda "^0.24.1"
+    recompose "^0.24.0"
+    scroll-into-view-if-needed "^1.1.0"
 
 react-markdown@^2.4.4:
   version "2.4.6"
@@ -8554,11 +8548,10 @@ react-markdown@^2.4.4:
     commonmark-react-renderer "^4.2.4"
     in-publish "^2.0.0"
 
-react-motion@^0.4.7:
-  version "0.4.8"
-  resolved "https://registry.yarnpkg.com/react-motion/-/react-motion-0.4.8.tgz#23bb2dd27c2d8e00d229e45572d105efcf40a35e"
+react-motion@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/react-motion/-/react-motion-0.5.0.tgz#1708fc2aee552900d21c1e6bed28346863e017b6"
   dependencies:
-    create-react-class "^15.5.2"
     performance-now "^0.2.0"
     prop-types "^15.5.8"
     raf "^3.1.0"
@@ -8649,17 +8642,17 @@ react-test-renderer@^15.4.2, react-test-renderer@^15.6.1:
     fbjs "^0.8.9"
     object-assign "^4.1.0"
 
-react-toolbox-components@^0.3.2:
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/react-toolbox-components/-/react-toolbox-components-0.3.2.tgz#33b003e43f1c7763b866b5582712879ca8722e20"
+react-toolbox-components@^0.3.3:
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/react-toolbox-components/-/react-toolbox-components-0.3.3.tgz#b559ef7a4ebe2a11e625b0f0593d4b9f4f369d7a"
   dependencies:
     "@types/react" "^15.0.36"
-    react-form-helper "^0.4.7"
-    react-motion "^0.4.7"
+    react-form-helper "^0.5.0"
+    react-motion "^0.5.0"
     react-with-media "^0.2.0"
     recompose "^0.24.0"
     redux-decorated "^1.0.1"
-    styled-components "^1.2.1"
+    styled-components "^2.1.1"
     styled-material "^0.2.0"
 
 react-toolbox-themr@^1.0.2:
@@ -8838,15 +8831,6 @@ rechoir@^0.6.2:
   resolved "https://registry.yarnpkg.com/rechoir/-/rechoir-0.6.2.tgz#85204b54dba82d5742e28c96756ef43af50e3384"
   dependencies:
     resolve "^1.1.6"
-
-recompose@^0.21.2:
-  version "0.21.2"
-  resolved "https://registry.yarnpkg.com/recompose/-/recompose-0.21.2.tgz#ff3fbdb2397b1c77c47d451be2a63b9295d44681"
-  dependencies:
-    change-emitter "^0.1.2"
-    fbjs "^0.8.1"
-    hoist-non-react-statics "^1.0.0"
-    symbol-observable "^1.0.4"
 
 recompose@^0.22.0:
   version "0.22.0"
@@ -9252,11 +9236,17 @@ schema-utils@^0.3.0:
   dependencies:
     ajv "^5.0.0"
 
-scroll-into-view-if-needed@^1.0.6, scroll-into-view-if-needed@^1.1.0:
+scroll-into-view-if-needed@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/scroll-into-view-if-needed/-/scroll-into-view-if-needed-1.1.0.tgz#9a0da1424eb2037746ed5c53b797f9676985bfcc"
   dependencies:
     amator "^1.0.1"
+
+scroll-into-view-if-needed@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/scroll-into-view-if-needed/-/scroll-into-view-if-needed-1.2.1.tgz#a8e7bd2cde2e66ba8e31cbec2f677fb5d6d4a26a"
+  dependencies:
+    amator "1.0.1"
 
 select-hose@^2.0.0:
   version "2.0.0"
@@ -9808,7 +9798,7 @@ style-loader@^0.18.2:
     loader-utils "^1.0.2"
     schema-utils "^0.3.0"
 
-styled-components@^1.1.1, styled-components@^1.2.1, styled-components@^1.4.3:
+styled-components@^1.1.1, styled-components@^1.4.3:
   version "1.4.4"
   resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-1.4.4.tgz#c944de423d8ae2363f2ba4ff8fc26d367e7dfa8f"
   dependencies:
@@ -10246,9 +10236,9 @@ ts-loader@^2.2.2:
     loader-utils "^1.0.2"
     semver "^5.0.1"
 
-tscomp@^0.13.0:
-  version "0.13.0"
-  resolved "https://registry.yarnpkg.com/tscomp/-/tscomp-0.13.0.tgz#75621c441d8ed263260182db206f00bfb035b0ff"
+tscomp@^0.13.2:
+  version "0.13.2"
+  resolved "https://registry.yarnpkg.com/tscomp/-/tscomp-0.13.2.tgz#14706e72522179839d7a6b315f8cc4e876cb2c9f"
   dependencies:
     autoprefixer "^7.1.1"
     babel-core "^6.25.0"
@@ -10386,9 +10376,9 @@ tslib@^1.7.1:
   version "1.7.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.7.1.tgz#bc8004164691923a79fe8378bbeb3da2017538ec"
 
-tslint-config-beanloop@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/tslint-config-beanloop/-/tslint-config-beanloop-0.2.0.tgz#fef9ac028e03f0914002437bccdeeb361fc4dacb"
+tslint-config-pajn@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/tslint-config-pajn/-/tslint-config-pajn-1.0.0.tgz#bf23e23a9989e64d1677768ae001aac6de422efc"
 
 tslint@^5.5.0:
   version "5.5.0"

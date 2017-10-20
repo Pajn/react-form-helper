@@ -1,6 +1,6 @@
 {
   "name": "react-form-helper",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "React component for building forms with ease",
   "main": "cjs/index.js",
   "module": "lib/index.js",
@@ -16,7 +16,7 @@
   "repository": "https://github.com/pajn/react-form-helper.git",
   "homepage": "https://pajn.github.io/react-form-helper",
   "author": "Rasmus Eneman <rasmus@eneman.eu>",
-  "license": "MIT",
+  "license": "(Apache-2.0 OR MIT)",
   "devDependencies": {
     "@types/jest": "^20.0.4",
     "@types/react": "^15.0.38",
@@ -28,18 +28,18 @@
     "react-dom": "^15.6.1",
     "react-test-renderer": "^15.6.1",
     "react-toolbox": "^2.0.0-beta.12",
-    "react-toolbox-components": "^0.3.2",
+    "react-toolbox-components": "^0.3.3",
     "styled-material": "^0.2.0",
-    "tscomp": "^0.13.0",
+    "tscomp": "^0.13.2",
     "tslint": "^5.5.0",
-    "tslint-config-beanloop": "^0.2.0"
+    "tslint-config-pajn": "^1.0.0"
   },
   "dependencies": {
-    "@types/ramda": "^0.24.4",
+    "@types/ramda": "^0.24.16",
     "@types/recompose": "^0.23.2",
-    "ramda": "^0.24.1",
+    "ramda": "^0.25.0",
     "recompose": "^0.24.0",
-    "scroll-into-view-if-needed": "^1.1.0"
+    "scroll-into-view-if-needed": "^1.2.1"
   },
   "peerDependencies": {
     "@types/react": "^15.0.14",
