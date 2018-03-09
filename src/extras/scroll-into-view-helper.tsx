@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {ReactNode} from 'react'
 import {Component, ReactType} from 'react'
 import {findDOMNode} from 'react-dom'
 import {ComponentEnhancer, wrapDisplayName} from 'recompose'
@@ -28,17 +28,23 @@ export type WithScrollIntoViewInjectedProps = {
  *  - **scroller**: is an object that should passed as the first argument to [scollIntoView].
  *    It should never be accessed directly
  */
-export const withScrollIntoView: (settings?: Settings) => ComponentEnhancer<{}, WithScrollIntoViewInjectedProps> = ({duration = 200}: Settings = {}) =>
-  WrappedComponent => class extends Component<any, {allowScroll: boolean}> {
+export const withScrollIntoView: (
+  settings?: Settings,
+) => ComponentEnhancer<WithScrollIntoViewInjectedProps, {}> = ({
+  duration = 200,
+}: Settings = {}) => WrappedComponent =>
+  class extends Component<any, {allowScroll: boolean}> {
     static displayName = wrapDisplayName(WrappedComponent, 'withScrollIntoView')
 
     state = {allowScroll: true}
     animationSettings = {duration}
-    setAllowScrollIntoView = (allowScroll: boolean) => this.setState({allowScroll})
+    setAllowScrollIntoView = (allowScroll: boolean) =>
+      this.setState({allowScroll})
 
     render() {
       return (
-        <WrappedComponent {...this.props}
+        <WrappedComponent
+          {...this.props}
           setAllowScrollIntoView={this.setAllowScrollIntoView}
           scroller={this}
         />
@@ -75,7 +81,10 @@ export const withScrollIntoView: (settings?: Settings) => ComponentEnhancer<{}, 
  * />
  * ```
  */
-export function scrollIntoView(scroller: any, fields: Array<FieldConfig>) {
+export function scrollIntoView<T extends FieldConfig<any, any> | ReactNode>(
+  scroller: any,
+  fields: Array<T>,
+) {
   if (!scroller.state.allowScroll) return fields
 
   let allowScroll = true
@@ -84,12 +93,12 @@ export function scrollIntoView(scroller: any, fields: Array<FieldConfig>) {
   return fields.map(field => {
     if (!allowScroll || !field) return field
 
-    if (field.validationError) {
+    if ((field as FieldConfig<any, any>).validationError) {
       setImmediate(() => scroller.setAllowScrollIntoView(false))
       allowScroll = false
 
       return {
-        ...field,
+        ...(field as FieldConfig<any, any>),
         ref(ref: Element) {
           if (hasScrolled || !ref || !scroller.state.allowScroll) return null
 

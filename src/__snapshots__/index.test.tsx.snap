@@ -1,25 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`FormHelper should not pass errors to the browser inputs 1`] = `
 <form
   id={undefined}
   onSubmit={[Function]}
-  style={undefined}>
+  style={undefined}
+>
   <div>
     <input
       disabled={undefined}
       onChange={[Function]}
-      value="" />
+      value=""
+    />
   </div>
   <div>
     <input
       disabled={undefined}
       onChange={[Function]}
-      value="" />
+      value=""
+    />
   </div>
   <div>
     <input
       disabled={undefined}
       onChange={[Function]}
-      value="" />
+      value=""
+    />
   </div>
 </form>
 `;
@@ -28,11 +34,31 @@ exports[`FormHelper should not run custom validators on no value 1`] = `
 <form
   id={undefined}
   onSubmit={[Function]}
-  style={undefined}>
+  style={undefined}
+>
   <input
     disabled={undefined}
     onChange={[Function]}
-    value="" />
+    value={undefined}
+  />
+</form>
+`;
+
+exports[`FormHelper should pass additional props down to the field components 1`] = `
+<form
+  id={undefined}
+  onSubmit={[Function]}
+  style={undefined}
+>
+  <div>
+    <input
+      a="A"
+      b="B"
+      disabled={undefined}
+      onChange={[Function]}
+      value=""
+    />
+  </div>
 </form>
 `;
 
@@ -40,22 +66,26 @@ exports[`FormHelper should pass errors to custom inputs 1`] = `
 <form
   id={undefined}
   onSubmit={[Function]}
-  style={undefined}>
+  style={undefined}
+>
   <input
     disabled={undefined}
     error="a error"
     onChange={[Function]}
-    value="" />
+    value={undefined}
+  />
   <input
     disabled={undefined}
     error="b error"
     onChange={[Function]}
-    value="" />
+    value={undefined}
+  />
   <input
     disabled={undefined}
     error="c error"
     onChange={[Function]}
-    value="value" />
+    value="value"
+  />
 </form>
 `;
 
@@ -63,25 +93,29 @@ exports[`FormHelper should pass errors to untouched inputs if errorOnTouched is 
 <form
   id={undefined}
   onSubmit={[Function]}
-  style={undefined}>
+  style={undefined}
+>
   <input
     disabled={undefined}
     error={undefined}
     onBlur={[Function]}
     onChange={[Function]}
-    value="" />
+    value={undefined}
+  />
   <input
     disabled={undefined}
     error={undefined}
     onBlur={[Function]}
     onChange={[Function]}
-    value="" />
+    value={undefined}
+  />
   <input
     disabled={undefined}
     error={undefined}
     onBlur={[Function]}
     onChange={[Function]}
-    value="value" />
+    value="value"
+  />
 </form>
 `;
 
@@ -89,23 +123,27 @@ exports[`FormHelper should pass errors to untouched inputs if they are listed in
 <form
   id={undefined}
   onSubmit={[Function]}
-  style={undefined}>
+  style={undefined}
+>
   <input
     disabled={undefined}
     error="a error"
     onChange={[Function]}
-    value="" />
+    value={undefined}
+  />
   <input
     disabled={undefined}
     error={undefined}
     onBlur={[Function]}
     onChange={[Function]}
-    value="" />
+    value={undefined}
+  />
   <input
     disabled={undefined}
     error="c error"
     onChange={[Function]}
-    value="value" />
+    value="value"
+  />
 </form>
 `;
 
@@ -113,18 +151,21 @@ exports[`FormHelper should render the passed fields 1`] = `
 <form
   id={undefined}
   onSubmit={[Function]}
-  style={undefined}>
+  style={undefined}
+>
   <div>
     <input
       disabled={undefined}
       onChange={[Function]}
-      value="a" />
+      value="a"
+    />
   </div>
   <div>
     <input
       disabled={undefined}
       onChange={[Function]}
-      value="" />
+      value=""
+    />
   </div>
 </form>
 `;
@@ -133,22 +174,133 @@ exports[`FormHelper should render using specified components 1`] = `
 <form
   id={undefined}
   onSubmit={[Function]}
-  style={undefined}>
+  style={undefined}
+>
   <some-input
     disabled={undefined}
     onChange={[Function]}
-    value="a" />
+    value="a"
+  />
   <some-input
     disabled={undefined}
     onChange={[Function]}
-    value="" />
+    value={undefined}
+  />
   <other-input
     disabled={undefined}
     onChange={[Function]}
-    value="c" />
+    value="c"
+  />
   <other-input
     disabled={undefined}
     onChange={[Function]}
-    value="" />
+    value={undefined}
+  />
 </form>
+`;
+
+exports[`FormHelper should support mapping rendered fields 1`] = `
+<form
+  id={undefined}
+  onSubmit={[Function]}
+  style={undefined}
+>
+  <div>
+    <some-input
+      disabled={undefined}
+      onChange={[Function]}
+      value="a"
+    />
+  </div>
+  <div>
+    <some-input
+      disabled={undefined}
+      onChange={[Function]}
+      value={undefined}
+    />
+  </div>
+  <div>
+    <other-input
+      disabled={undefined}
+      onChange={[Function]}
+      value="c"
+    />
+  </div>
+  <div>
+    <other-input
+      disabled={undefined}
+      onChange={[Function]}
+      value={undefined}
+    />
+  </div>
+</form>
+`;
+
+exports[`FormHelper should support rendering fields based on value 1`] = `
+<form
+  id={undefined}
+  onSubmit={[Function]}
+  style={undefined}
+>
+  <div>
+    <input
+      disabled={undefined}
+      onChange={[Function]}
+      value="a"
+    />
+  </div>
+  <div>
+    <input
+      disabled={undefined}
+      onChange={[Function]}
+      value=""
+    />
+  </div>
+</form>
+`;
+
+exports[`FormHelper should support rendering fields based on value 2`] = `
+<form
+  id={undefined}
+  onSubmit={[Function]}
+  style={undefined}
+>
+  <div>
+    <input
+      disabled={undefined}
+      onChange={[Function]}
+      value="a"
+    />
+  </div>
+  <div>
+    <input
+      disabled={undefined}
+      onChange={[Function]}
+      value="b"
+    />
+  </div>
+  <div>
+    <input
+      disabled={undefined}
+      onChange={[Function]}
+      value=""
+    />
+  </div>
+</form>
+`;
+
+exports[`FormHelper typing helpers should pass through values 1`] = `
+Array [
+  Object {
+    "component": [Function],
+    "label": "Name",
+    "onChange": [Function],
+    "path": Array [
+      "name",
+    ],
+    "props": Object {
+      "name": "name",
+    },
+  },
+]
 `;

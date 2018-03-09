@@ -1,10 +1,11 @@
 ---
 title: Initial State
 imports:
-  '{FormHelper}': '../../../dist/src/index'
-  '{Button}': 'react-toolbox/lib/button'
-  '{Input}': 'react-toolbox/lib/input'
+  '{FormHelper}': '../../../cjs/index'
+  'Button': 'material-ui/Button'
+  '{TextField}': 'react-material-app'
 ---
+
 ```store example
 <FormHelper
   saveButton='Save'
@@ -12,7 +13,7 @@ imports:
   buttonProps={{
     primary: true,
   }}
-  inputComponent={Input}
+  inputComponent={TextField}
   onSave={credentials => this.setState({credentials})}
   value={{email: 'user@example.com'}}
   fields={[
@@ -20,15 +21,20 @@ imports:
   ]}
 />
 ```
+
 #### Initial state
+
 Sometimes you need to provide the form with initial state, for example
 when you edit an user.
 
 ###### Code
+
 ```stored example jsx
+
 ```
 
 ###### Demo
+
 ```render
 <div>
   {store.example}
@@ -36,6 +42,7 @@ when you edit an user.
 ```
 
 ###### State
+
 ```render
 <div>
   <p>

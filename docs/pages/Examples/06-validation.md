@@ -1,14 +1,12 @@
 ---
 title: Validation
 imports:
-  '{FormHelper, pattern, required}': '../../../dist/src/index'
+  '{FormHelper, pattern, required}': '../../../cjs/index'
   '{cloneElement}': 'react'
-  '{Button, IconButton}': 'react-toolbox/lib/button'
-  '{Dropdown}': 'react-toolbox/lib/dropdown'
-  '{FontIcon}': 'react-toolbox/lib/font_icon'
-  '{Input}': 'react-toolbox/lib/input'
-  '{Row}': 'styled-material/dist/src/layout'
+  'Button': 'material-ui/Button'
+  '{TextField}': 'react-material-app'
 ---
+
 ```store example
 <FormHelper
   saveButton='Save'
@@ -16,7 +14,8 @@ imports:
   buttonProps={{
     primary: true,
   }}
-  inputComponent={Input}
+  inputComponent={TextField}
+  style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-start'}}
   onSave={user => this.setState({user})}
   value={this.state.user}
   fields={[
@@ -27,28 +26,32 @@ imports:
       [required]: {text: 'Email is required'},
       format: {
         text: 'Must be valid',
-        // Validation takes a function to validate the field.
+        // test takes a function to validate the field.
         // The provided pattern function takes a Regexp and
-        // returns a validation function.
-        validation: pattern(/^[^@]{1,60}@\w{1,50}\.\w{2,15}$/),
+        // returns a test function.
+        test: pattern(/^[^@]{1,60}@\w{1,50}\.\w{2,15}$/),
       },
     }},
     {path: ['phone'], icon: 'phone', label: 'Phone', validations: {
       format: {
-        text: 'Must be valid', 
-        validation: pattern(/^[0-9]{5,10}$/),
+        text: 'Must be valid',
+        test: pattern(/^[0-9]{5,10}$/),
       },
     }},
   ]}
 />
 ```
+
 #### Validation
 
 ###### Code
+
 ```stored example jsx
+
 ```
 
 ###### Demo
+
 ```render
 <div>
   {store.example}
@@ -56,6 +59,7 @@ imports:
 ```
 
 ###### State
+
 ```render
 <div>
   <p>
@@ -65,12 +69,14 @@ imports:
 ```
 
 #### Avoiding a lot of errors at once
+
 If you have a form with multiple required fields you probably
 don't want to display a required error for all of them when
 the user opens the form. To avoid that you can set `errorOnTouched`
 {' '} to only show the error after the user have interacted with the field.
 
 ###### Code
+
 ```code jsx
 <FormHelper
   errorOnTouched
@@ -79,6 +85,7 @@ the user opens the form. To avoid that you can set `errorOnTouched`
 ```
 
 ###### Demo
+
 ```render
 <div>
   {cloneElement(store.example, {errorOnTouched: true})}
@@ -86,9 +93,11 @@ the user opens the form. To avoid that you can set `errorOnTouched`
 ```
 
 #### Server Side Validation
+
 Some things can not be validated on the client alone. By setting
-the validationError property on a field it will display that error
+the `validationError` property on a field it will display that error
 even if the validation function is missing or returns true.
+
 ```store server
 <FormHelper
   saveButton='Save'
@@ -96,12 +105,13 @@ even if the validation function is missing or returns true.
   buttonProps={{
     primary: true,
   }}
-  inputComponent={Input}
+  inputComponent={TextField}
+  style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-start'}}
   onSave={user => this.setState({user})}
   value={{email: 'admin@example.com'}}
   fields={[
-    {path: ['email'], icon: 'email', label: 'Email', 
-      validationError: 'unique', 
+    {path: ['email'], icon: 'email', label: 'Email',
+      validationError: 'unique',
       validations: {
         unique: {text: 'The email is already registered'},
       },
@@ -111,10 +121,13 @@ even if the validation function is missing or returns true.
 ```
 
 ###### Code
+
 ```stored server jsx
+
 ```
 
 ###### Demo
+
 ```render
 <div>
   {store.server}

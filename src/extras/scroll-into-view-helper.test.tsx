@@ -16,7 +16,7 @@ function mockScroller(allowScroll = true) {
 }
 
 declare const global: any
-global.HTMLElement = function (withParent = true) {
+global.HTMLElement = function(withParent = true) {
   this.nodeType = 1
   if (withParent) {
     this.parentNode = new (HTMLElement as any)(false)
@@ -30,7 +30,7 @@ describe('scroll-into-view-helper', () => {
         {},
         {validationError: 'error'},
         {validationError: 'error2'},
-      ] as Array<FieldConfig>)
+      ] as Array<FieldConfig<{}, any>>),
     ).toMatchSnapshot()
   })
 
@@ -40,14 +40,14 @@ describe('scroll-into-view-helper', () => {
         {},
         {validationError: 'error'},
         {validationError: 'error2'},
-      ] as Array<FieldConfig>)
+      ] as Array<FieldConfig<{}, any>>),
     ).toMatchSnapshot()
   })
 
   it('should scroll to the ref', () => {
     const [{ref}] = scrollIntoView(mockScroller(), [
       {validationError: 'error'},
-    ] as Array<FieldConfig>) as any
+    ] as Array<FieldConfig<{}, any>>) as any
 
     const mockElement: any = new HTMLElement()
     ref(mockElement)

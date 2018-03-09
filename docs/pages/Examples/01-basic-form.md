@@ -1,7 +1,7 @@
 ---
 title: Basic Form
 imports:
-  '{FormHelper}': '../../../dist/src/index'
+  '{FormHelper}': '../../../cjs/index'
 ---
 ```store example
 <FormHelper

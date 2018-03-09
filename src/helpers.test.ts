@@ -10,7 +10,10 @@ describe('helpers', () => {
         {path: ['c']},
       ]
 
-      expect(isValid(fields, {})).toEqual({validatedFields: fields, valid: false})
+      expect(isValid(fields, {})).toEqual({
+        validatedFields: fields,
+        valid: false,
+      })
     })
 
     it('should return false if any of the fields have an validationError property', () => {
@@ -20,19 +23,29 @@ describe('helpers', () => {
         {path: ['c']},
       ]
 
-      expect(isValid(fields, {})).toEqual({validatedFields: fields, valid: false})
+      expect(isValid(fields, {})).toEqual({
+        validatedFields: fields,
+        valid: false,
+      })
     })
 
     it('should return false if any of the fields fail their validation', () => {
       const validation = (value: any) => value === 'B'
       const fields = [
         {path: ['a']},
-        {path: ['b'], validations: {isUppercase: {text: 'Must be uppercase', validation}}},
+        {
+          path: ['b'],
+          validations: {isUppercase: {text: 'Must be uppercase', validation}},
+        },
         {path: ['c']},
       ]
       const validatedFields = [
         {path: ['a']},
-        {path: ['b'], validations: {isUppercase: {text: 'Must be uppercase', validation}}, validationError: 'isUppercase'},
+        {
+          path: ['b'],
+          validations: {isUppercase: {text: 'Must be uppercase', validation}},
+          validationError: 'isUppercase',
+        },
         {path: ['c']},
       ]
 
@@ -58,11 +71,18 @@ describe('helpers', () => {
       const validation = (value: any) => value !== 'A'
       const fields = [
         {path: ['a']},
-        {path: ['b'], required: true, validations: {isNotA: {text: '', validation}}},
+        {
+          path: ['b'],
+          required: true,
+          validations: {isNotA: {text: '', validation}},
+        },
         {path: ['c'], validations: {isNotA: {text: '', validation}}},
       ]
 
-      expect(isValid(fields, {b: 'B'})).toEqual({validatedFields: fields, valid: true})
+      expect(isValid(fields, {b: 'B'})).toEqual({
+        validatedFields: fields,
+        valid: true,
+      })
     })
   })
 })

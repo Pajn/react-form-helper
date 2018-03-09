@@ -34,4 +34,5 @@ export const required = 'required'
  * }
  * ```
  */
-export const pattern = (pattern: RegExp) => (value: string) => pattern.test(value)
+export const pattern = (pattern: RegExp) => (value: string) =>
+  pattern.test(value)

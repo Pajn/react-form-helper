@@ -1,13 +1,13 @@
 ---
 title: Controlled
 imports:
-  '{FormHelper}': '../../../dist/src/index'
-  '{Button}': 'react-toolbox/lib/button'
-  '{Input}': 'react-toolbox/lib/input'
+  '{FormHelper}': '../../../cjs/index'
+  '{TextField}': 'react-material-app'
 ---
+
 ```store example
 <FormHelper
-  inputComponent={Input}
+  inputComponent={TextField}
   onSave={credentials => this.setState({credentials})}
   onChange={credentials => this.setState({credentials})}
   value={this.state.credentials}
@@ -16,7 +16,9 @@ imports:
   ]}
 />
 ```
+
 #### Controlled
+
 The form can be made into an controlled component by passing an
 onChange function. This can be useful if you have an more advanced
 use case and for examples use multiple forms, need to react to changes
@@ -26,10 +28,13 @@ pass an onSave function as that will be called when the user submits
 the form in other ways, with the keyboard for example.
 
 ###### Code
+
 ```stored example jsx
+
 ```
 
 ###### Demo
+
 ```render
 <div>
   {store.example}
@@ -37,6 +42,7 @@ the form in other ways, with the keyboard for example.
 ```
 
 ###### State
+
 ```render
 <div>
   <p>

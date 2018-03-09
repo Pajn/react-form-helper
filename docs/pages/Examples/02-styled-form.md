@@ -1,7 +1,7 @@
 ---
 title: Styled Form
 imports:
-  '{FormHelper}': '../../../dist/src/index'
+  '{FormHelper}': '../../../cjs/index'
 ---
 ```store example
 <FormHelper
@@ -38,7 +38,7 @@ imports:
 ```
 #### Styled form
 Extra properties in the field definitions is passed down to the input
-component. There are also a `buttonProps` prop on the form and `divPops`,
+component. There are also a `buttonProps` prop on the form and `divProps`,
 `labelProps` and `labelSpanProps` fields on the field definitions to pass
 down extra props to the corresponding components. This lets you control 
 their behavior and for example add styles.

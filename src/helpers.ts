@@ -1,9 +1,10 @@
-import {path as getPath} from 'ramda'
+import {Path, path as getPath} from 'ramda'
+import {ReactNode} from 'react'
 import {FieldConfig} from './index'
 import {required as requiredError} from './validation'
 
 /**
- * Check is two arrays are equal (same length and all elements are ===)
+ * Check if two arrays are equal (same length and all elements are ===)
  */
 export function isEqual(a: Array<any>, b: Array<any>) {
   if (a.length !== b.length) return false
@@ -13,34 +14,47 @@ export function isEqual(a: Array<any>, b: Array<any>) {
   return true
 }
 
-export function isValid(fields: Array<FieldConfig>, updatedObject: any) {
-  const validatedFields = [] as Array<FieldConfig>
+export function isValid<T>(
+  fields: Array<FieldConfig<T, any> | ReactNode>,
+  updatedObject: T,
+) {
+  const validatedFields = [] as Array<FieldConfig<T, any>>
   let valid = true
 
   for (const field of fields) {
-    if (!field || (field as any).props) {
-      validatedFields.push(field)
+    if (!field || !('path' in (field as any))) {
+      validatedFields.push(field as any)
       continue
     }
 
-    const value = getValue(field.path, updatedObject)
-    const required =
-      typeof field.required === 'function'
-        ? field.required(updatedObject)
-        : field.required
+    const typedField = field as FieldConfig<T, any>
 
-    if (required && value === '') {
+    const value = getValue(typedField.path, updatedObject)
+    const required =
+      typeof typedField.required === 'function'
+        ? typedField.required(updatedObject)
+        : typedField.required
+
+    if (required && (value === '' || value === null || value === undefined)) {
       valid = false
-      validatedFields.push(Object.assign({}, field, {validationError: requiredError}))
+      validatedFields.push(
+        Object.assign({}, typedField, {validationError: requiredError}),
+      )
       continue
     }
 
     let fieldValid = true
-    if (field.validations) {
-      for (const [type, validation] of Object.entries(field.validations)) {
-        if (value && validation.validation && !validation.validation(value)) {
+    if (typedField.validations) {
+      for (const [type, validation] of Object.entries(typedField.validations)) {
+        if (
+          value &&
+          validation.test &&
+          !validation.test(value, updatedObject)
+        ) {
           fieldValid = false
-          validatedFields.push(Object.assign({}, field, {validationError: type}))
+          validatedFields.push(
+            Object.assign({}, typedField, {validationError: type}),
+          )
           break
         }
       }
@@ -50,25 +64,22 @@ export function isValid(fields: Array<FieldConfig>, updatedObject: any) {
       }
     }
 
-    if (field.error) {
+    if (typedField.error) {
       valid = false
     }
 
-    if (field.validationError) {
+    if (typedField.validationError) {
       valid = false
     }
 
     if (fieldValid) {
-      validatedFields.push(field)
+      validatedFields.push(typedField)
     }
   }
 
   return {validatedFields, valid}
 }
 
-export function getValue(path: Array<string>, updatedObject: any) {
-  const value = getPath(path, updatedObject)
-  if (value === undefined || value === null) return ''
-
-  return value
+export function getValue<T, V>(path: Path, updatedObject: T): V | undefined {
+  return getPath(path, updatedObject)
 }

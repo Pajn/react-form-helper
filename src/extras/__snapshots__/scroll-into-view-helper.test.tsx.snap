@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`scroll-into-view-helper should not set a ref if allowScroll is false 1`] = `
 Array [
   Object {},

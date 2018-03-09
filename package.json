@@ -14,36 +14,45 @@
     "docs-analyze": "documittu-analyzer-ts . > docs/analyze-result.json"
   },
   "repository": "https://github.com/pajn/react-form-helper.git",
-  "homepage": "https://pajn.github.io/react-form-helper",
+  "homepage": "https://pajn.github.io",
   "author": "Rasmus Eneman <rasmus@eneman.eu>",
   "license": "(Apache-2.0 OR MIT)",
   "devDependencies": {
     "@types/jest": "^20.0.4",
-    "@types/react": "^15.0.38",
-    "@types/react-test-renderer": "^15.5.2",
-    "documittu": "^0.1.0",
-    "documittu-analyzer-ts": "^0.1.0",
-    "documittu-template-default": "^0.1.0",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
-    "react-test-renderer": "^15.6.1",
-    "react-toolbox": "^2.0.0-beta.12",
-    "react-toolbox-components": "^0.3.3",
+    "@types/react": "^16.0.40",
+    "@types/react-dom": "^16.0.3",
+    "@types/react-test-renderer": "^16.0.1",
+    "babel-loader": "^7.1.4",
+    "material-ui": "^1.0.0-beta.26",
+    "prettier": "^1.11.1",
+    "react": "16.2.0",
+    "react-dom": "16.2.0",
+    "react-test-renderer": "^16.2.0",
+    "sass-loader": "^6.0.7",
     "styled-material": "^0.2.0",
-    "tscomp": "^0.13.2",
-    "tslint": "^5.5.0",
+    "tscomp": "^0.15.0",
+    "tslint": "^5.9.1",
     "tslint-config-pajn": "^1.0.0"
   },
   "dependencies": {
-    "@types/ramda": "^0.24.16",
-    "@types/recompose": "^0.23.2",
+    "@types/ramda": "^0.25.19",
+    "@types/recompose": "^0.24.5",
+    "documittu": "^0.3.2",
+    "documittu-analyzer-ts": "^0.3.2",
+    "documittu-template-default": "^0.3.2",
+    "iterates": "^0.3.6",
     "ramda": "^0.25.0",
-    "recompose": "^0.24.0",
-    "scroll-into-view-if-needed": "^1.2.1"
+    "recompose": "^0.26.0",
+    "scroll-into-view-if-needed": "^1.5.0",
+    "typescript": "^2.7.2"
   },
   "peerDependencies": {
-    "@types/react": "^15.0.14",
-    "react": "^15.4.1"
+    "@types/react": "^15.0.14 || ^16.0",
+    "react": "^15.4.1 || ^16.0"
+  },
+  "resolutions": {
+    "@types/react": "16.0.40",
+    "@types/react-dom": "16.0.3"
   },
   "tscomp": {
     "mode": "lib"
