@@ -126,7 +126,7 @@ export type Properties<T> = {
    */
   fields: Array<Field<T>>
   mapField?: (
-    rendereField: ReactNode,
+    renderedField: ReactNode,
     i: number,
     fields: Array<ReactNode>,
   ) => ReactNode
@@ -289,7 +289,10 @@ export class FormHelper<T = any> extends Component<
     const {validatedFields, valid} = isValid(fields, updatedObject)
     const dirty = validatedFields.some(
       field =>
-        field && !isValidElement(field) && this.hasFieldChanged(field.path),
+        (field &&
+          !isValidElement(field) &&
+          this.hasFieldChanged((field as FieldConfig<T>).path)) ||
+        false,
     )
 
     const passesDirtyCheck = !dirtyCheck || onChange !== undefined || !dirty

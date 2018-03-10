@@ -1,6 +1,6 @@
 import {Path, path as getPath} from 'ramda'
-import {ReactNode} from 'react'
-import {FieldConfig} from './index'
+import {ReactNode, isValidElement} from 'react'
+import {Field, FieldConfig} from './index'
 import {required as requiredError} from './validation'
 
 /**
@@ -18,12 +18,12 @@ export function isValid<T>(
   fields: Array<FieldConfig<T, any> | ReactNode>,
   updatedObject: T,
 ) {
-  const validatedFields = [] as Array<FieldConfig<T, any>>
+  const validatedFields = [] as Array<Field<T>>
   let valid = true
 
   for (const field of fields) {
-    if (!field || !('path' in (field as any))) {
-      validatedFields.push(field as any)
+    if (!field || isValidElement(field)) {
+      validatedFields.push(field)
       continue
     }
 
