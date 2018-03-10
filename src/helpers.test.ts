@@ -30,12 +30,12 @@ describe('helpers', () => {
     })
 
     it('should return false if any of the fields fail their validation', () => {
-      const validation = (value: any) => value === 'B'
+      const test = (value: any) => value === 'B'
       const fields = [
         {path: ['a']},
         {
           path: ['b'],
-          validations: {isUppercase: {text: 'Must be uppercase', validation}},
+          validations: {isUppercase: {text: 'Must be uppercase', test}},
         },
         {path: ['c']},
       ]
@@ -43,7 +43,7 @@ describe('helpers', () => {
         {path: ['a']},
         {
           path: ['b'],
-          validations: {isUppercase: {text: 'Must be uppercase', validation}},
+          validations: {isUppercase: {text: 'Must be uppercase', test}},
           validationError: 'isUppercase',
         },
         {path: ['c']},
@@ -68,15 +68,15 @@ describe('helpers', () => {
     })
 
     it('should return true if the fields validate', () => {
-      const validation = (value: any) => value !== 'A'
+      const test = (value: any) => value !== 'A'
       const fields = [
         {path: ['a']},
         {
           path: ['b'],
           required: true,
-          validations: {isNotA: {text: '', validation}},
+          validations: {isNotA: {text: '', test}},
         },
-        {path: ['c'], validations: {isNotA: {text: '', validation}}},
+        {path: ['c'], validations: {isNotA: {text: '', test}}},
       ]
 
       expect(isValid(fields, {b: 'B'})).toEqual({

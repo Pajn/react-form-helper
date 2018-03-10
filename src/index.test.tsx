@@ -49,7 +49,7 @@ describe('FormHelper', () => {
             },
             {
               path: ['c'],
-              validations: {c: {text: 'c error', validation: () => false}},
+              validations: {c: {text: 'c error', test: () => false}},
             },
           ]}
         />,
@@ -73,7 +73,7 @@ describe('FormHelper', () => {
             },
             {
               path: ['c'],
-              validations: {c: {text: 'c error', validation: () => false}},
+              validations: {c: {text: 'c error', test: () => false}},
             },
           ]}
         />,
@@ -94,7 +94,7 @@ describe('FormHelper', () => {
               validations: {
                 a: {
                   text: 'a error',
-                  validation: () => {
+                  test: () => {
                     throw 'should not be called'
                   },
                 },
@@ -123,7 +123,7 @@ describe('FormHelper', () => {
             },
             {
               path: ['c'],
-              validations: {c: {text: 'c error', validation: () => false}},
+              validations: {c: {text: 'c error', test: () => false}},
             },
           ]}
         />,
@@ -148,7 +148,7 @@ describe('FormHelper', () => {
             },
             {
               path: ['c'],
-              validations: {c: {text: 'c error', validation: () => false}},
+              validations: {c: {text: 'c error', test: () => false}},
             },
           ]}
         />,
