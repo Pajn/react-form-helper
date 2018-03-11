@@ -189,7 +189,7 @@ export type Properties<T> = {
    *   value: The current value of the form
    *   loading: If the form is saving or not
    */
-  buttonComponent?: ReactType<SaveButtonComponentProps<T>>
+  buttonComponent?: ReactType<Partial<SaveButtonComponentProps<T>>>
   /**
    * Extra props that should be passed to the button component
    */
