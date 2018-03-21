@@ -62,6 +62,52 @@ exports[`FormHelper should pass additional props down to the field components 1`
 </form>
 `;
 
+exports[`FormHelper should pass disabled to the fields 1`] = `
+<form
+  id={undefined}
+  onSubmit={[Function]}
+  style={undefined}
+>
+  <div>
+    <input
+      disabled={true}
+      onChange={[Function]}
+      value="a"
+    />
+  </div>
+  <div>
+    <input
+      disabled={undefined}
+      onChange={[Function]}
+      value=""
+    />
+  </div>
+</form>
+`;
+
+exports[`FormHelper should pass disabled to the fields 2`] = `
+<form
+  id={undefined}
+  onSubmit={[Function]}
+  style={undefined}
+>
+  <div>
+    <input
+      disabled={true}
+      onChange={[Function]}
+      value="a"
+    />
+  </div>
+  <div>
+    <input
+      disabled={false}
+      onChange={[Function]}
+      value=""
+    />
+  </div>
+</form>
+`;
+
 exports[`FormHelper should pass errors to custom inputs 1`] = `
 <form
   id={undefined}

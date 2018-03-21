@@ -214,6 +214,31 @@ describe('FormHelper', () => {
     ).toMatchSnapshot()
   })
 
+  it('should pass disabled to the fields', () => {
+    expect(
+      renderer.create(
+        <FormHelper
+          value={{a: 'a'}}
+          onSave={() => {}}
+          fields={[{path: ['a'], disabled: true}, {path: ['b']}]}
+        />,
+      ),
+    ).toMatchSnapshot()
+
+    expect(
+      renderer.create(
+        <FormHelper
+          value={{a: 'a'}}
+          onSave={() => {}}
+          fields={[
+            {path: ['a'], disabled: object => object.a === 'a'},
+            {path: ['b'], disabled: object => object.a === 'b'},
+          ]}
+        />,
+      ),
+    ).toMatchSnapshot()
+  })
+
   describe('typing helpers', () => {
     type User = {id: string; name: string; birthdate?: Date}
 

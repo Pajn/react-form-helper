@@ -65,7 +65,7 @@ export type FieldConfig<
    * If the field is required
    */
   required?: boolean | ((object: T) => boolean)
-  disabled?: boolean
+  disabled?: boolean | ((object: T) => boolean)
   /**
    * Specify validation messages and possibly functions
    *
@@ -395,7 +395,7 @@ export class FormHelper<T = any> extends Component<
         props: extraProps,
         disabled,
         ...inputProps
-      } = field
+      } = field as FieldConfig<any>
 
       const fieldValue = getValue(field.path, updatedObject)
 
@@ -407,11 +407,13 @@ export class FormHelper<T = any> extends Component<
       if (errorOnTouched) {
         let hideError = !this.state.touched[path.join('.')]
         if (hideError && Array.isArray(errorOnTouched)) {
-          hideError = errorOnTouched.includes(validationError)
+          hideError =
+            validationError !== undefined &&
+            errorOnTouched.includes(validationError)
         }
         if (hideError) {
-          const oldBlur = inputProps.onBlur
-          inputProps.onBlur = (e: React.FormEvent<any>) => {
+          const oldBlur = (inputProps as any).onBlur
+          ;(inputProps as any).onBlur = (e: React.FormEvent<any>) => {
             this.setState({
               touched: {
                 ...this.state.touched,
@@ -429,7 +431,9 @@ export class FormHelper<T = any> extends Component<
         key: i,
         ...inputProps,
         value: fieldValue,
-        disabled: disabled || formDisabled,
+        disabled:
+          formDisabled ||
+          (typeof disabled === 'function' ? disabled(updatedObject) : disabled),
         onChange: (value: any) => {
           let newUpdatedObject = set(lensPath(path), value, updatedObject)
           if (field.onChange) {
