@@ -2,7 +2,9 @@ import React, {ReactNode} from 'react'
 import {Component, ReactType} from 'react'
 import {findDOMNode} from 'react-dom'
 import {ComponentEnhancer, wrapDisplayName} from 'recompose'
-import scrollIntoViewIfNeeded from 'scroll-into-view-if-needed'
+import scrollIntoViewIfNeeded, {
+  SmoothBehaviorOptions,
+} from 'smooth-scroll-into-view-if-needed'
 import {FieldConfig} from '../index'
 
 export type Settings = {
@@ -37,7 +39,7 @@ export const withScrollIntoView: (
     static displayName = wrapDisplayName(WrappedComponent, 'withScrollIntoView')
 
     state = {allowScroll: true}
-    animationSettings = {duration}
+    animationSettings: SmoothBehaviorOptions = {duration}
     setAllowScrollIntoView = (allowScroll: boolean) =>
       this.setState({allowScroll})
 
@@ -104,7 +106,7 @@ export function scrollIntoView<T extends FieldConfig<any, any> | ReactNode>(
 
           const element = findDOMNode(ref)
 
-          scrollIntoViewIfNeeded(element, true, scroller.animationSettings)
+          scrollIntoViewIfNeeded(element, scroller.animationSettings)
           hasScrolled = true
         },
       }

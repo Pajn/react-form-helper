@@ -4,6 +4,7 @@ import {scrollIntoView} from './scroll-into-view-helper'
 
 function mockScroller(allowScroll = true) {
   return {
+    animationSettings: {},
     state: {
       allowScroll,
     },
