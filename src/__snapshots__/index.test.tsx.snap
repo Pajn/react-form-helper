@@ -1,5 +1,73 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`FormHelper dirty check should disable the save button if form has not changed 1`] = `
+<form
+  id={undefined}
+  onSubmit={[Function]}
+  style={undefined}
+>
+  <div>
+    <input
+      disabled={true}
+      onChange={[Function]}
+      value="a"
+    />
+  </div>
+  <div>
+    <input
+      disabled={false}
+      onChange={[Function]}
+      value=""
+    />
+  </div>
+  <button
+    disabled={true}
+    type="submit"
+    value={
+      Object {
+        "a": "a",
+      }
+    }
+  >
+    save
+  </button>
+</form>
+`;
+
+exports[`FormHelper dirty check should enable the save button when the form has changed 1`] = `
+<form
+  id={undefined}
+  onSubmit={[Function]}
+  style={undefined}
+>
+  <div>
+    <input
+      disabled={false}
+      onChange={[Function]}
+      value="c"
+    />
+  </div>
+  <div>
+    <input
+      disabled={false}
+      onChange={[Function]}
+      value=""
+    />
+  </div>
+  <button
+    disabled={false}
+    type="submit"
+    value={
+      Object {
+        "a": "c",
+      }
+    }
+  >
+    save
+  </button>
+</form>
+`;
+
 exports[`FormHelper should not pass errors to the browser inputs 1`] = `
 <form
   id={undefined}

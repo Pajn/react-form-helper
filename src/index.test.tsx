@@ -255,4 +255,43 @@ describe('FormHelper', () => {
       ).toMatchSnapshot()
     })
   })
+
+  describe('dirty check', () => {
+    it('should disable the save button if form has not changed', () => {
+      expect(
+        renderer.create(
+          <FormHelper
+            value={{a: 'a'}}
+            onSave={() => {}}
+            fields={[
+              {path: ['a'], disabled: object => object.a === 'a'},
+              {path: ['b'], disabled: object => object.a === 'b'},
+            ]}
+            dirtyCheck
+            saveButton="save"
+          />,
+        ),
+      ).toMatchSnapshot()
+    })
+
+    it('should enable the save button when the form has changed', () => {
+      const subject = renderer.create(
+        <FormHelper
+          value={{a: 'a'}}
+          onSave={() => {}}
+          fields={[
+            {path: ['a'], disabled: object => object.a === 'a'},
+            {path: ['b'], disabled: object => object.a === 'b'},
+          ]}
+          dirtyCheck
+          saveButton="save"
+        />,
+      )
+      subject.root
+        .findAllByType('input')[0]
+        .props.onChange({target: {value: 'c'}})
+
+      expect(subject).toMatchSnapshot()
+    })
+  })
 })

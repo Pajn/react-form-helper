@@ -268,7 +268,7 @@ export class FormHelper<T = any> extends Component<
 
   hasFieldChanged(path: Path) {
     return (
-      getPath(path, this.state.updatedObject) !==
+      getPath(path, this.state.updatedObject || this.props.value) !==
       getPath(path, this.props.value)
     )
   }
@@ -295,7 +295,7 @@ export class FormHelper<T = any> extends Component<
         false,
     )
 
-    const passesDirtyCheck = !dirtyCheck || onChange !== undefined || !dirty
+    const passesDirtyCheck = !dirtyCheck || onChange !== undefined || dirty
     const allowSubmit = passesDirtyCheck && valid && !disabled
 
     return {
