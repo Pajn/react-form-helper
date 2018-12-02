@@ -1,4 +1,3 @@
-
 {
   "compilerOptions": {
     "allowJs": false,
@@ -12,8 +11,6 @@
     "allowSyntheticDefaultImports": true,
     "outDir": "lib"
   },
-  "include": [
-    "src/**/*"
-  ],
+  "include": ["src/**/*"],
   "exclude": []
 }
