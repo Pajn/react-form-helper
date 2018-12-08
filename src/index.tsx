@@ -1,4 +1,3 @@
-import {Path, chain, lensPath, path as getPath, set} from 'ramda'
 import React, {
   CSSProperties,
   Component,
@@ -10,9 +9,8 @@ import React, {
   cloneElement,
   isValidElement,
 } from 'react'
-import {Omit} from 'recompose'
 import {BrowserButton, BrowserInput} from './browser-components'
-import {getValue, isValid} from './helpers'
+import {getValue, isValid, updateIn, Omit} from './helpers'
 
 export * from './validation'
 
@@ -266,10 +264,10 @@ export class FormHelper<T = any> extends Component<
     this.unmounted = true
   }
 
-  hasFieldChanged(path: Path) {
+  hasFieldChanged(path: Array<string>) {
     return (
-      getPath(path, this.state.updatedObject || this.props.value) !==
-      getPath(path, this.props.value)
+      getValue(path, this.state.updatedObject || this.props.value) !==
+      getValue(path, this.props.value)
     )
   }
 
@@ -281,10 +279,12 @@ export class FormHelper<T = any> extends Component<
           ? this.state.updatedObject || this.props.value
           : this.props.value
         : newUpdatedObject
-    const fields = chain(
-      (field: any) =>
-        typeof field === 'function' ? field(updatedObject) : field,
-      this.props.fields,
+    const fields = this.props.fields.reduce(
+      (fields: Field<any>[], field) =>
+        typeof field === 'function'
+          ? fields.concat((field as any)(updatedObject))
+          : fields.concat(field),
+      [],
     )
     const {validatedFields, valid} = isValid(fields, updatedObject)
     const dirty = validatedFields.some(
@@ -358,26 +358,26 @@ export class FormHelper<T = any> extends Component<
       disabled: formDisabled,
       fields,
       mapField,
-      value,
       onSave,
       onChange,
       onStatus,
       saveButton,
-      formComponent: Form = 'form',
-      inputComponent: Input = BrowserInput,
-      buttonComponent: Button = BrowserButton,
+      formComponent = 'form',
+      inputComponent = BrowserInput,
+      buttonComponent = BrowserButton,
       buttonProps,
       formId,
-      dirtyCheck = false,
       errorOnTouched,
     } = this.props
     const {loading} = this.state
 
+    const Form = formComponent as any
+    const Input = inputComponent as any
+    const Button = buttonComponent as any
+
     const {
       updatedObject,
       validatedFields,
-      valid,
-      dirty,
       disabled: submitDisabled,
     } = this.checkForm()
 
@@ -435,7 +435,7 @@ export class FormHelper<T = any> extends Component<
           formDisabled ||
           (typeof disabled === 'function' ? disabled(updatedObject) : disabled),
         onChange: (value: any) => {
-          let newUpdatedObject = set(lensPath(path), value, updatedObject)
+          let newUpdatedObject = updateIn(path, value, updatedObject)
           if (field.onChange) {
             const modifiedObject = field.onChange(newUpdatedObject)
             if (modifiedObject) {
@@ -474,7 +474,7 @@ export class FormHelper<T = any> extends Component<
       renderedFields = renderedFields.map((field, i) => {
         const mappedField = mapField(field, i, renderedFields)
         return isValidElement(field) && isValidElement(mappedField)
-          ? cloneElement<any, any>(mappedField, {key: field.key})
+          ? cloneElement(mappedField, {key: field.key!})
           : mappedField
       })
     }

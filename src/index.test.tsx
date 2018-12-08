@@ -20,7 +20,7 @@ describe('FormHelper', () => {
     expect(
       renderer.create(
         <FormHelper
-          inputComponent="some-input"
+          inputComponent="textarea"
           value={{a: 'a', c: 'c'}}
           onSave={() => {}}
           fields={[
@@ -199,7 +199,7 @@ describe('FormHelper', () => {
     expect(
       renderer.create(
         <FormHelper
-          inputComponent="some-input"
+          inputComponent="textarea"
           value={{a: 'a', c: 'c'}}
           onSave={() => {}}
           fields={[

@@ -2,9 +2,7 @@
 
 exports[`FormHelper dirty check should disable the save button if form has not changed 1`] = `
 <form
-  id={undefined}
   onSubmit={[Function]}
-  style={undefined}
 >
   <div>
     <input
@@ -36,9 +34,7 @@ exports[`FormHelper dirty check should disable the save button if form has not c
 
 exports[`FormHelper dirty check should enable the save button when the form has changed 1`] = `
 <form
-  id={undefined}
   onSubmit={[Function]}
-  style={undefined}
 >
   <div>
     <input
@@ -70,27 +66,22 @@ exports[`FormHelper dirty check should enable the save button when the form has 
 
 exports[`FormHelper should not pass errors to the browser inputs 1`] = `
 <form
-  id={undefined}
   onSubmit={[Function]}
-  style={undefined}
 >
   <div>
     <input
-      disabled={undefined}
       onChange={[Function]}
       value=""
     />
   </div>
   <div>
     <input
-      disabled={undefined}
       onChange={[Function]}
       value=""
     />
   </div>
   <div>
     <input
-      disabled={undefined}
       onChange={[Function]}
       value=""
     />
@@ -100,29 +91,22 @@ exports[`FormHelper should not pass errors to the browser inputs 1`] = `
 
 exports[`FormHelper should not run custom validators on no value 1`] = `
 <form
-  id={undefined}
   onSubmit={[Function]}
-  style={undefined}
 >
   <input
-    disabled={undefined}
     onChange={[Function]}
-    value={undefined}
   />
 </form>
 `;
 
 exports[`FormHelper should pass additional props down to the field components 1`] = `
 <form
-  id={undefined}
   onSubmit={[Function]}
-  style={undefined}
 >
   <div>
     <input
       a="A"
       b="B"
-      disabled={undefined}
       onChange={[Function]}
       value=""
     />
@@ -132,9 +116,7 @@ exports[`FormHelper should pass additional props down to the field components 1`
 
 exports[`FormHelper should pass disabled to the fields 1`] = `
 <form
-  id={undefined}
   onSubmit={[Function]}
-  style={undefined}
 >
   <div>
     <input
@@ -145,7 +127,6 @@ exports[`FormHelper should pass disabled to the fields 1`] = `
   </div>
   <div>
     <input
-      disabled={undefined}
       onChange={[Function]}
       value=""
     />
@@ -155,9 +136,7 @@ exports[`FormHelper should pass disabled to the fields 1`] = `
 
 exports[`FormHelper should pass disabled to the fields 2`] = `
 <form
-  id={undefined}
   onSubmit={[Function]}
-  style={undefined}
 >
   <div>
     <input
@@ -178,24 +157,17 @@ exports[`FormHelper should pass disabled to the fields 2`] = `
 
 exports[`FormHelper should pass errors to custom inputs 1`] = `
 <form
-  id={undefined}
   onSubmit={[Function]}
-  style={undefined}
 >
   <input
-    disabled={undefined}
     error="a error"
     onChange={[Function]}
-    value={undefined}
   />
   <input
-    disabled={undefined}
     error="b error"
     onChange={[Function]}
-    value={undefined}
   />
   <input
-    disabled={undefined}
     error="c error"
     onChange={[Function]}
     value="value"
@@ -205,27 +177,17 @@ exports[`FormHelper should pass errors to custom inputs 1`] = `
 
 exports[`FormHelper should pass errors to untouched inputs if errorOnTouched is true 1`] = `
 <form
-  id={undefined}
   onSubmit={[Function]}
-  style={undefined}
 >
   <input
-    disabled={undefined}
-    error={undefined}
     onBlur={[Function]}
     onChange={[Function]}
-    value={undefined}
   />
   <input
-    disabled={undefined}
-    error={undefined}
     onBlur={[Function]}
     onChange={[Function]}
-    value={undefined}
   />
   <input
-    disabled={undefined}
-    error={undefined}
     onBlur={[Function]}
     onChange={[Function]}
     value="value"
@@ -235,25 +197,17 @@ exports[`FormHelper should pass errors to untouched inputs if errorOnTouched is 
 
 exports[`FormHelper should pass errors to untouched inputs if they are listed in the errorOnTouched array 1`] = `
 <form
-  id={undefined}
   onSubmit={[Function]}
-  style={undefined}
 >
   <input
-    disabled={undefined}
     error="a error"
     onChange={[Function]}
-    value={undefined}
   />
   <input
-    disabled={undefined}
-    error={undefined}
     onBlur={[Function]}
     onChange={[Function]}
-    value={undefined}
   />
   <input
-    disabled={undefined}
     error="c error"
     onChange={[Function]}
     value="value"
@@ -263,20 +217,16 @@ exports[`FormHelper should pass errors to untouched inputs if they are listed in
 
 exports[`FormHelper should render the passed fields 1`] = `
 <form
-  id={undefined}
   onSubmit={[Function]}
-  style={undefined}
 >
   <div>
     <input
-      disabled={undefined}
       onChange={[Function]}
       value="a"
     />
   </div>
   <div>
     <input
-      disabled={undefined}
       onChange={[Function]}
       value=""
     />
@@ -286,65 +236,49 @@ exports[`FormHelper should render the passed fields 1`] = `
 
 exports[`FormHelper should render using specified components 1`] = `
 <form
-  id={undefined}
   onSubmit={[Function]}
-  style={undefined}
 >
-  <some-input
-    disabled={undefined}
+  <textarea
     onChange={[Function]}
     value="a"
   />
-  <some-input
-    disabled={undefined}
+  <textarea
     onChange={[Function]}
-    value={undefined}
   />
   <other-input
-    disabled={undefined}
     onChange={[Function]}
     value="c"
   />
   <other-input
-    disabled={undefined}
     onChange={[Function]}
-    value={undefined}
   />
 </form>
 `;
 
 exports[`FormHelper should support mapping rendered fields 1`] = `
 <form
-  id={undefined}
   onSubmit={[Function]}
-  style={undefined}
 >
   <div>
-    <some-input
-      disabled={undefined}
+    <textarea
       onChange={[Function]}
       value="a"
     />
   </div>
   <div>
-    <some-input
-      disabled={undefined}
+    <textarea
       onChange={[Function]}
-      value={undefined}
     />
   </div>
   <div>
     <other-input
-      disabled={undefined}
       onChange={[Function]}
       value="c"
     />
   </div>
   <div>
     <other-input
-      disabled={undefined}
       onChange={[Function]}
-      value={undefined}
     />
   </div>
 </form>
@@ -352,20 +286,16 @@ exports[`FormHelper should support mapping rendered fields 1`] = `
 
 exports[`FormHelper should support rendering fields based on value 1`] = `
 <form
-  id={undefined}
   onSubmit={[Function]}
-  style={undefined}
 >
   <div>
     <input
-      disabled={undefined}
       onChange={[Function]}
       value="a"
     />
   </div>
   <div>
     <input
-      disabled={undefined}
       onChange={[Function]}
       value=""
     />
@@ -375,27 +305,22 @@ exports[`FormHelper should support rendering fields based on value 1`] = `
 
 exports[`FormHelper should support rendering fields based on value 2`] = `
 <form
-  id={undefined}
   onSubmit={[Function]}
-  style={undefined}
 >
   <div>
     <input
-      disabled={undefined}
       onChange={[Function]}
       value="a"
     />
   </div>
   <div>
     <input
-      disabled={undefined}
       onChange={[Function]}
       value="b"
     />
   </div>
   <div>
     <input
-      disabled={undefined}
       onChange={[Function]}
       value=""
     />

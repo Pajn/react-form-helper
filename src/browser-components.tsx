@@ -1,5 +1,5 @@
 import React from 'react'
-import {Omit} from 'recompose'
+import {Omit} from './helpers'
 import {FieldComponentProps, SaveButtonComponentProps} from './index'
 
 export const BrowserButton = ({
