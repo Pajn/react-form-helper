@@ -5616,9 +5616,9 @@ istanbul-reports@^1.5.1:
     handlebars "^4.0.3"
 
 iterates@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/iterates/-/iterates-1.0.0.tgz#eeb90968d90b20b526b5485ccabc5c9f074fade9"
-  integrity sha512-T27rHfGB1vDzWNj6TkxAwoUkdP73p/AEUDTbOoNozg/DAfLf/xoIsJGPHtkCyzchtC+5Ncr2c05dRtCmXqbUWw==
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/iterates/-/iterates-1.0.1.tgz#7760f3de3a4a33a08abfe04d69e6f8d07486c309"
+  integrity sha512-WglmnWefq3/8lrxgSkGd4TmqNamdhkEKfDFT60SlidTp4//tScGDYRWFoTw7RsChZlFr18F2+8Bu7/SJGbW+ig==
   dependencies:
     "@babel/runtime" "^7.1.5"
     auto-curry "^0.2.1"
