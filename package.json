@@ -1,6 +1,6 @@
 {
   "name": "react-form-helper",
-  "version": "1.0.0-beta.7",
+  "version": "1.0.0-beta.8",
   "description": "React component for building forms with ease",
   "main": "cjs/index.js",
   "module": "lib/index.js",
