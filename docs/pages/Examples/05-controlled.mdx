@@ -1,21 +1,7 @@
----
-title: Controlled
-imports:
-  '{FormHelper}': '../../../cjs/index'
-  '{TextField}': 'react-material-app'
----
-
-```store example
-<FormHelper
-  inputComponent={TextField}
-  onSave={credentials => this.setState({credentials})}
-  onChange={credentials => this.setState({credentials})}
-  value={this.state.credentials}
-  fields={[
-    {path: ['email'], icon: 'email', label: 'Email'},
-  ]}
-/>
-```
+import {Controlled} from '../../src/examples/05-controlled.example'
+import {spyState} from '../../src/SpyState'
+export const attributes = {title: 'Controlled'}
+export const [Example, Spy] = spyState(Controlled)
 
 #### Controlled
 
@@ -29,24 +15,26 @@ the form in other ways, with the keyboard for example.
 
 ###### Code
 
-```stored example jsx
-
+```jsx
+<FormHelper
+  inputComponent={TextField}
+  onSave={credentials => this.setState({credentials})}
+  onChange={credentials => this.setState({credentials})}
+  value={this.state.credentials}
+  fields={[{path: ['email'], icon: 'email', label: 'Email'}]}
+/>
 ```
 
 ###### Demo
 
-```render
 <div>
-  {store.example}
+  <Example />
 </div>
-```
 
 ###### State
 
-```render
 <div>
   <p>
-    Credentials: {JSON.stringify(this.state.credentials)}
+    <Spy />
   </p>
 </div>
-```

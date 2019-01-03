@@ -2,3 +2,5 @@ cjs/
 lib/
 node_modules/
 npm-debug.log
+.next
+docs/out

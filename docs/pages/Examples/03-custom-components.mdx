@@ -1,0 +1,45 @@
+import {CustomComponents} from '../../src/examples/03-custom-components.example'
+import {spyState} from '../../src/SpyState'
+export const attributes = {title: 'Custom components'}
+export const [Example, Spy] = spyState(CustomComponents)
+
+#### Custom components
+
+If you need even more control than adding extra props can give you, you
+can override all of the components that the FormHelper renders.
+
+###### Code
+
+```jsx
+<FormHelper
+  saveButton="Login"
+  buttonComponent={ProgressButton}
+  buttonProps={{
+    primary: true,
+  }}
+  inputComponent={TextField}
+  style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-start'}}
+  onSave={credentials =>
+    authenticate(credentials).then(result => this.setState(result))
+  }
+  fields={[
+    {path: ['email'], icon: 'email', label: 'Email'},
+    {path: ['password'], icon: 'lock', label: 'Password', type: 'password'},
+    {path: ['rememberMe'], component: Checkbox, label: 'Remember Me'},
+  ]}
+/>
+```
+
+###### Demo
+
+<div>
+  <Example />
+</div>
+
+###### State
+
+<div>
+  <p>
+    <Spy />
+  </p>
+</div>

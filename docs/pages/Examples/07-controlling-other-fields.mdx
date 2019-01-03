@@ -1,0 +1,50 @@
+import {ControllingOtherFields} from '../../src/examples/07-controlling-other-fields.example'
+import {spyState} from '../../src/SpyState'
+export const attributes = {title: 'Controlling other fields'}
+export const [Example, Spy] = spyState(ControllingOtherFields)
+
+#### Controlling other fields
+
+Sometimes you need to controll other fields based on the field the user typed in.
+Maybe to provide a default value or to display a preview of something.
+
+###### Code
+
+```jsx
+<FormHelper
+  inputComponent={TextField}
+  style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-start'}}
+  onSave={user => this.setState({user})}
+  value={this.state.user}
+  fields={[
+    {
+      path: ['name'],
+      icon: 'face',
+      label: 'Name',
+      onChange: updated => {
+        const oldUser = this.state.user || {}
+
+        // Update the displayName only if it matches with the previous name
+        return oldUser.name === oldUser.displayName
+          ? {...updated, displayName: updated.name}
+          : updated
+      },
+    },
+    {path: ['displayName'], icon: 'account_circle', label: 'Display Name'},
+  ]}
+/>
+```
+
+###### Demo
+
+<div>
+  <Example />
+</div>
+
+###### State
+
+<div>
+  <p>
+    <Spy />
+  </p>
+</div>

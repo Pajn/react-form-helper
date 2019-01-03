@@ -1,0 +1,62 @@
+import {StyledForm} from '../../src/examples/02-styled-form.example'
+import {spyState} from '../../src/SpyState'
+export const attributes = {title: 'Styled Form'}
+export const [Example, Spy] = spyState(StyledForm)
+
+#### Styled form
+
+Extra properties in the field definitions is passed down to the input
+component. There are also a `buttonProps` prop on the form and `divProps`,
+`labelProps` and `labelSpanProps` fields on the field definitions to pass
+down extra props to the corresponding components. This lets you control
+their behavior and for example add styles.
+
+###### Code
+
+```jsx
+<FormHelper
+  saveButton="Login"
+  buttonProps={{
+    style: {padding: 8, background: 'lightblue', border: 'none'},
+  }}
+  onSave={credentials => this.setState({credentials})}
+  fields={[
+    {
+      path: ['email'],
+      label: 'Email',
+      style: {border: '2px solid lightblue'},
+      divProps: {style: {padding: 8}},
+      labelSpanProps: {style: {display: 'inline-block', width: 120}},
+    },
+    {
+      path: ['password'],
+      label: 'Password',
+      type: 'password',
+      style: {border: '2px solid lightblue'},
+      divProps: {style: {padding: 8}},
+      labelSpanProps: {style: {display: 'inline-block', width: 120}},
+    },
+    {
+      path: ['rememberMe'],
+      label: 'Remember me',
+      type: 'checkbox',
+      divProps: {style: {padding: 8}},
+      labelSpanProps: {style: {display: 'inline-block', width: 120}},
+    },
+  ]}
+/>
+```
+
+###### Demo
+
+<div>
+  <Example />
+</div>
+
+###### State
+
+<div>
+  <p>
+    <Spy />
+  </p>
+</div>

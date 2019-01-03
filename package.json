@@ -14,7 +14,7 @@
     "docs-analyze": "documittu-analyzer-ts . > docs/analyze-result.json"
   },
   "repository": "https://github.com/pajn/react-form-helper.git",
-  "homepage": "https://pajn.github.io",
+  "homepage": "https://pajn.github.io/react-form-helper/",
   "author": "Rasmus Eneman <rasmus@eneman.eu>",
   "license": "(Apache-2.0 OR MIT)",
   "dependencies": {

@@ -1,0 +1,39 @@
+import {InitialState} from '../../src/examples/04-initial-state.example'
+import {spyState} from '../../src/SpyState'
+export const attributes = {title: 'Initial State'}
+export const [Example, Spy] = spyState(InitialState)
+
+#### Initial state
+
+Sometimes you need to provide the form with initial state, for example
+when you edit an user.
+
+###### Code
+
+```jsx
+<FormHelper
+  saveButton="Save"
+  buttonComponent={Button}
+  buttonProps={{
+    primary: true,
+  }}
+  inputComponent={TextField}
+  onSave={credentials => this.setState({credentials})}
+  value={{email: 'user@example.com'}}
+  fields={[{path: ['email'], icon: 'email', label: 'Email'}]}
+/>
+```
+
+###### Demo
+
+<div>
+  <Example />
+</div>
+
+###### State
+
+<div>
+  <p>
+    <Spy />
+  </p>
+</div>
