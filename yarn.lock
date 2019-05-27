@@ -1563,10 +1563,6 @@ attempt-x@^1.1.0, attempt-x@^1.1.1:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/attempt-x/-/attempt-x-1.1.3.tgz#9ac844c75bca2c4e9e30d8d5c01f41eeb481a8b7"
 
-auto-curry@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/auto-curry/-/auto-curry-0.2.1.tgz#d50a2c4273b465e5a2d311bbe946355a68be6e53"
-
 autoprefixer@9.3.1:
   version "9.3.1"
   resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-9.3.1.tgz#71b622174de2b783d5fd99f9ad617b7a3c78443e"
@@ -5640,12 +5636,11 @@ istanbul-reports@^1.5.1:
     handlebars "^4.0.3"
 
 iterates@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/iterates/-/iterates-1.0.0.tgz#eeb90968d90b20b526b5485ccabc5c9f074fade9"
-  integrity sha512-T27rHfGB1vDzWNj6TkxAwoUkdP73p/AEUDTbOoNozg/DAfLf/xoIsJGPHtkCyzchtC+5Ncr2c05dRtCmXqbUWw==
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/iterates/-/iterates-1.1.0.tgz#3747b41a1504f4273d47d746a14d2071ad765596"
+  integrity sha512-sAksQa5BM1wv4v15bEibakd6a/EZ8xBQ3YUPRQUKGxJsUbRJkcIYfIh+LQJd5BMqcp/zAfzK5Rwz9yMU4QXMLw==
   dependencies:
     "@babel/runtime" "^7.1.5"
-    auto-curry "^0.2.1"
 
 jest-changed-files@^23.4.2:
   version "23.4.2"
